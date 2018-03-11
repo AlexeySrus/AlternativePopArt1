@@ -17,3 +17,5 @@
   1. `B = AlphaSmooth(B, Background_B, 255 - C)`
   2. `G = AlphaSmooth(G, 255 - Background_G, 255 - C)`
   3. `R = AlphaSmooth(G, Background_R, 255 - C)`
+* Вычисляем текущее значения интенсивнсости пикселя и изменяем значение красного следующим образом:
+  `R = AlphaSmooth(G, 255, (100 - AVG(B, G, R)) * 2)`
