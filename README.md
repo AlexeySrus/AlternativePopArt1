@@ -37,3 +37,4 @@
     + `B = AlphaSmooth(B, 157, 255 - C)`
     + `G = AlphaSmooth(G, 30, 255 - C)`
     + `R = AlphaSmooth(B, 200, 255 - C)`
+---
