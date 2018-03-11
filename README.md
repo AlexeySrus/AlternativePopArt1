@@ -38,7 +38,7 @@
     + `G = AlphaSmooth(G, 30, 255 - C)`
     + `R = AlphaSmooth(B, 200, 255 - C)`
 ---
-## Примеры работы
+## Примеры работы алгоритма
 ---
 ### `Оригинальное изображение, C = 0, W = 0`
 ![](/images/2560x1440.jpg)
@@ -58,3 +58,18 @@
   <a href="http://www.codecogs.com/eqnedit.php?latex=AlphaSmooth(c_1,&space;c_2,&space;\alpha)\&space;=&space;\&space;c_1&space;*&space;\alpha&space;/&space;255&space;&plus;&space;c_2&space;*&space;(255&space;-&space;\alpha)&space;/&space;255" target="_blank"><img src="http://latex.codecogs.com/gif.latex?AlphaSmooth(c_1,&space;c_2,&space;\alpha)\&space;=&space;\&space;c_1&space;*&space;\alpha&space;/&space;255&space;&plus;&space;c_2&space;*&space;(255&space;-&space;\alpha)&space;/&space;255" title="AlphaSmooth(c_1, c_2, \alpha)\ = \ c_1 * \alpha / 255 + c_2 * (255 - \alpha) / 255" /></a>
 * Алгоритм реализован на языке C++, стандарта 11
 * Требуется поддержка компилятром стандарта OpenMP не ниже 2.0
+* Пример `Cmake` файла для компиляции:
+```cmake
+cmake_minimum_required(VERSION 3.8)
+project(pop_art1)
+
+set(CMAKE_CXX_COMPILER "g++")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-O3 -fopenmp")
+
+find_package(OpenCV REQUIRED)
+
+set(SOURCE_FILES main.cpp)
+add_executable(pop_art1 ${SOURCE_FILES})
+target_link_libraries(pop_art1 ${OpenCV_LIBS})
+```
