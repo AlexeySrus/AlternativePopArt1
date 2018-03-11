@@ -7,6 +7,7 @@ https://github.com/AlexeySrus/AlternativePopArt1
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <cmath>
+#include <omp.h>
 
 //Объявление констант
 #define MAX_EFFECT_VALUE 159
