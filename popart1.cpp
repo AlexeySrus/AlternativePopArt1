@@ -1,3 +1,8 @@
+/*
+Просмотр данного кода предпологает ознакомление с работой алгоритма по ссылке
+https://github.com/AlexeySrus/AlternativePopArt1
+*/
+
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <string>
