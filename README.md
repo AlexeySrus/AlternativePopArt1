@@ -69,7 +69,7 @@ set(CMAKE_CXX_FLAGS "-O3 -fopenmp")
 
 find_package(OpenCV REQUIRED)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES popart1.cpp)
 add_executable(pop_art1 ${SOURCE_FILES})
 target_link_libraries(pop_art1 ${OpenCV_LIBS})
 ```
