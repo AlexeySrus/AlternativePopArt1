@@ -73,3 +73,4 @@ set(SOURCE_FILES popart1.cpp)
 add_executable(pop_art1 ${SOURCE_FILES})
 target_link_libraries(pop_art1 ${OpenCV_LIBS})
 ```
+* Программа сохраняет последнее состояние изображения
