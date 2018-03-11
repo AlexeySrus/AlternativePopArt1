@@ -42,3 +42,5 @@
 * Функция альфа смешивания имеет вид:
 
   <a href="http://www.codecogs.com/eqnedit.php?latex=AlphaSmooth(c_1,&space;c_2,&space;\alpha)\&space;=&space;\&space;c_1&space;*&space;\alpha&space;/&space;255&space;&plus;&space;c_2&space;*&space;(255&space;-&space;\alpha)&space;/&space;255" target="_blank"><img src="http://latex.codecogs.com/gif.latex?AlphaSmooth(c_1,&space;c_2,&space;\alpha)\&space;=&space;\&space;c_1&space;*&space;\alpha&space;/&space;255&space;&plus;&space;c_2&space;*&space;(255&space;-&space;\alpha)&space;/&space;255" title="AlphaSmooth(c_1, c_2, \alpha)\ = \ c_1 * \alpha / 255 + c_2 * (255 - \alpha) / 255" /></a>
+* Алгоритм реализован на языке C++, стандарта 11
+* Требуется поддержка компилятром стандарта OpenMP не ниже 2.0
