@@ -29,4 +29,6 @@
 ### Второй этап алгоритма
 * Данный эффект зависит от значения W (2 x радиус круга) и предыдущего C
 * Отрисовываем круги с помощью альфа смешивание следующим образом:
-  1. <a href="http://www.codecogs.com/eqnedit.php?latex=$r(\omega)\&space;=\&space;\Theta(\omega&space;-&space;\omega_0)*\omega*\alpha^{-\omega&space;/&space;\omega_{max}}&space;/&space;2$" target="_blank"><img src="http://latex.codecogs.com/gif.latex?$r(\omega)\&space;=\&space;\Theta(\omega&space;-&space;\omega_0)*\omega*\alpha^{-\omega&space;/&space;\omega_{max}}&space;/&space;2$" title="$r(\omega)\ =\ \Theta(\omega - \omega_0)*\omega*\alpha^{-\omega / \omega_{max}} / 2$" /></a>
+  1. Вычисление радиуса:
+  
+  <a href="http://www.codecogs.com/eqnedit.php?latex=$r(\omega)\&space;=\&space;\Theta(\omega&space;-&space;\omega_0)*\omega*\alpha^{-\omega&space;/&space;\omega_{max}}&space;/&space;2$" target="_blank"><img src="http://latex.codecogs.com/gif.latex?$r(\omega)\&space;=\&space;\Theta(\omega&space;-&space;\omega_0)*\omega*\alpha^{-\omega&space;/&space;\omega_{max}}&space;/&space;2$" title="$r(\omega)\ =\ \Theta(\omega - \omega_0)*\omega*\alpha^{-\omega / \omega_{max}} / 2$" /></a>, где \omega это значение параметра W
