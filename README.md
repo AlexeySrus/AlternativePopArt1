@@ -16,7 +16,7 @@
 * Применяем альфа смешивание ко всем цветам пикселя:
   1. `B = AlphaSmooth(B, Background_B, 255 - C)`
   2. `G = AlphaSmooth(G, 255 - Background_G, 255 - C)`
-  3. `R = AlphaSmooth(G, Background_R, 255 - C)`
+  3. `R = AlphaSmooth(R, Background_R, 255 - C)`
 * Вычисляем текущее значение интенсивнсости пикселя и изменяем значение красного следующим образом:
 
   `Если AVG(B, G, R) < 50, то R = AlphaSmooth(G, 255, (100 - AVG(B, G, R)) * 2)`
@@ -36,7 +36,7 @@
   2. Изображение бъётся на квадраты со стороной W и в каждом отрисовывается круг радиуса <a href="http://www.codecogs.com/eqnedit.php?latex=r(\omega)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?r(\omega)" title="r(\omega)" /></a> с центром, совпадающим с центром квадрата следующим образом:
     + `B = AlphaSmooth(B, 157, 255 - C)`
     + `G = AlphaSmooth(G, 30, 255 - C)`
-    + `R = AlphaSmooth(B, 200, 255 - C)`
+    + `R = AlphaSmooth(R, 200, 255 - C)`
 ---
 ## Примеры работы алгоритма
 ---
