@@ -39,50 +39,31 @@ int purple_filter(uchar& b, uchar& g, uchar& r, const uchar& C){
     return EXIT_SUCCESS;
 }
 
+double sigmoid(double x){
+    return 1 / (1 + exp(-x));
+}
+
+int interpolation(uchar& b, uchar& g, uchar& r, const uchar& C=100){
+    double bl = sigmoid(0.58423239 -0.24524237*b/255 + -3.81645441*g/255 + -1.05635607*r/255);
+    double gl = sigmoid(-6.11872101 + -1.01019275*b/255 + 11.37687206*g/255 + 2.79928041*r/255);
+    double rl = sigmoid(-3.25048733 + 1.3386699*b + 10.43841362*g + 1.42320526*r);
+    b = alpha_f(b, static_cast<uchar>(bl*255), 255 - C);
+    g = alpha_f(g, static_cast<uchar>(gl*255), 255 - C);
+    r = alpha_f(r, static_cast<uchar>(rl*255), 255 - C);
+    return EXIT_SUCCESS;
+}
+
 //Реализация первого шага алгоритма
 int popart_effect(Mat& img, const uchar& C=100) {
-
-    Mat bg_img;
-    img.copyTo(bg_img);
-    Mat hsv_image;
-    cvtColor(img, hsv_image, CV_BGR2HSV);
-
 #pragma omp parallel for collapse(2)
     for(auto i = 0; i < img.rows; ++i)
         for(auto j = 0; j < img.cols; ++j) {
-                auto& b = img.at<Vec3b>(i,j)[0];
-                auto& g = img.at<Vec3b>(i,j)[1];
-                auto& r = img.at<Vec3b>(i,j)[2];
+            auto& b = img.at<Vec3b>(i,j)[0];
+            auto& g = img.at<Vec3b>(i,j)[1];
+            auto& r = img.at<Vec3b>(i,j)[2];
 
-                auto& bg_b = bg_img.at<Vec3b>(i,j)[0];
-                auto& bg_g = bg_img.at<Vec3b>(i,j)[1];
-                auto& bg_r = bg_img.at<Vec3b>(i,j)[2];
-
-                auto bg_avg_p = (bg_b + bg_g + bg_r) / 3;
-
-                bg_b = 0;
-                bg_g = 0;
-                bg_r = 0;
-
-                if (bg_avg_p < C)
-                    bg_g = 255;
-                else
-                    bg_r = 255;
-
-                b = alpha_f(b, bg_b, 255 - C);
-                g = alpha_f(g, 255 - bg_g, 255 - C);
-                r = alpha_f(r, bg_r, 255 - C);
-
-                auto avg_p = (b + g + r) / 3;
-
-                if (avg_p < 50)
-                    r = alpha_f(r, 255, (100 - avg_p) * 2);
-
-                purple_filter(b, g, r, (255 - hsv_image.at<Vec3b>(i, j)[2]) / 8);
-            }
-
-    bg_img.release();
-    hsv_image.release();
+            interpolation(b, g, r, C);
+        }
 
     return EXIT_SUCCESS;
 }
@@ -230,7 +211,7 @@ int main(int argc, char** argv) {
     } else
         im_path = argv[1];
 
-    popart_1(im_path, argc > 2 ? argv[2] : DEFAULT_WRITE_IMAGE_PATH);
+    popart_1(im_path);
 
     return EXIT_SUCCESS;
 }
