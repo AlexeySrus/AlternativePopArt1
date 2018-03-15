@@ -46,7 +46,7 @@ double sigmoid(double x){
 int interpolation(uchar& b, uchar& g, uchar& r, const uchar& C=100){
     double bl = sigmoid(0.58423239 -0.24524237*b/255 + -3.81645441*g/255 + -1.05635607*r/255);
     double gl = sigmoid(-6.11872101 + -1.01019275*b/255 + 11.37687206*g/255 + 2.79928041*r/255);
-    double rl = sigmoid(-3.25048733 + 1.3386699*b + 10.43841362*g + 1.42320526*r);
+    double rl = sigmoid(-3.25048733 + 1.3386699*b/255 + 10.43841362*g/255 + 1.42320526*r/255);
     b = alpha_f(b, static_cast<uchar>(bl*255), 255 - C);
     g = alpha_f(g, static_cast<uchar>(gl*255), 255 - C);
     r = alpha_f(r, static_cast<uchar>(rl*255), 255 - C);
